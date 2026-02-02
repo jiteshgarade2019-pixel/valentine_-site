@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Valentine Anushiya 💘</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #301b37 50%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            color: white;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+        }
+        .wisp {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 22px;
+            pointer-events: none;
+            animation: drift 12s linear infinite;
+        }
+        @keyframes drift {
+            0% { transform: translate(-10vw, 110vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.5; }
+            100% { transform: translate(110vw, -10vh) rotate(720deg); opacity: 0; }
+        }
+        .reason-box {
+            max-height: 220px;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="wisps"></div>
+
+    <div id="main-frame" class="glass p-8 max-w-md w-full text-center mx-4 animate__animated animate__fadeIn relative z-10">
+        <div id="content">
+            <h1 class="text-3xl font-bold text-pink-400 mb-1">For My Valentine Anushiya 💘</h1>
+            <p class="text-xs text-pink-200 tracking-widest mb-6 font-sans uppercase">FROM JITESH</p>
+            
+            <div class="mb-6 rounded-2xl overflow-hidden shadow-2xl bg-black/20 p-1">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1I5K0hR8R7S7x1u3T9U2K0?utm_source=generator" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+
+            <div class="space-y-3">
+                <button onclick="changePage('ch1')" class="w-full py-4 bg-white/5 hover:bg-pink-500/20 rounded-2xl border border-white/10 transition-all font-semibold">
+                    📖 Ch 1: First Crush
+                </button>
+                <button onclick="changePage('ch2')" class="w-full py-4 bg-white/5 hover:bg-pink-500/20 rounded-2xl border border-white/10 transition-all font-semibold">
+                    💌 Ch 2: 100 Reasons Why
+                </button>
+                <button onclick="changePage('ch3')" class="w-full py-4 bg-pink-600 hover:bg-pink-500 rounded-2xl font-bold shadow-lg shadow-pink-600/30">
+                    ✨ Ch 3: The Surprise
+                </button>
+            </div>
+            
+            <p class="mt-8 text-[10px] text-gray-500 uppercase tracking-widest italic">Always picking you ✻</p>
+        </div>
+    </div>
+
+    <script>
+        function createWisp() {
+            const wisp = document.createElement('div');
+            wisp.className = 'wisp';
+            wisp.innerHTML = '✻';
+            wisp.style.left = Math.random() * 100 + 'vw';
+            wisp.style.animationDuration = (Math.random() * 5 + 9) + 's';
+            document.getElementById('wisps').appendChild(wisp);
+            setTimeout(() => wisp.remove(), 12000);
+        }
+        setInterval(createWisp, 700);
+
+        function changePage(page) {
+            const content = document.getElementById('content');
+            content.className = 'animate__animated animate__fadeOut';
+            
+            setTimeout(() => {
+                content.className = 'animate__animated animate__fadeIn';
+                if (page === 'ch1') {
+                    content.innerHTML = `
+                        <h2 class="text-2xl font-bold text-pink-300 mb-4">The Big Yes ❤️</h2>
+                        <div class="text-sm leading-relaxed text-gray-200 text-left space-y-4 font-sans">
+                            <p>It’s been over 2 years since you took my breath away and proposed. That moment is etched in my heart forever.</p>
+                            <p>You were my first real crush, and seeing you by my side every day is a blessing. I love you more than words can say. ❤️</p>
+                        </div>
+                        <button onclick="location.reload()" class="mt-8 text-xs text-pink-400 underline uppercase">Back</button>
+                    `;
+                } else if (page === 'ch2') {
+                    let text = "";
+                    const list = ["your bravery in proposing", "you are my soulmate", "how we click perfectly", "your beautiful smile", "staying by me for 2+ amazing years", "your kind heart", "you make me laugh", "your eyes", "your support", "simply being Anushiya"];
+                    for(let i=1; i<=100; i++) text += `<p class="mb-2 text-pink-100">${i}. I love you because ${list[i % list.length]} ❤️</p>`;
+                    content.innerHTML = `
+                        <h2 class="text-2xl font-bold text-pink-300 mb-4">100 Reasons 💌</h2>
+                        <div class="reason-box text-left text-xs font-sans">${text}</div>
+                        <button onclick="location.reload()" class="mt-6 text-xs text-pink-400 underline uppercase">Back</button>
+                    `;
+                } else if (page === 'ch3') {
+                    content.innerHTML = `
+                        <h2 class="text-2xl font-bold text-pink-300 mb-6">Always Us ✨</h2>
+                        <div class="flex flex-col items-center mb-6 bg-pink-500/10 p-8 rounded-3xl border border-pink-500/20">
+                            <div class="text-7xl mb-4 animate__animated animate__pulse animate__infinite">👩‍❤️‍👨</div>
+                            <div class="flex space-x-3">
+                                <span class="animate__animated animate__bounceIn animate__infinite" style="animation-delay: 0.1s">❤️</span>
+                                <span class="animate__animated animate__bounceIn animate__infinite" style="animation-delay: 0.3s">🌸</span>
+                                <span class="animate__animated animate__bounceIn animate__infinite" style="animation-delay: 0.5s">❤️</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-200 italic mb-2">"2 Years Down, Forever to Go."</p>
+                        <p class="text-pink-500 font-bold text-lg">Happy Valentine's Day, Love!</p>
+                        <button onclick="location.reload()" class="mt-8 text-xs text-pink-400 underline uppercase">Back</button>
+                    `;
+                }
+            }, 500);
+        }
+    </script>
+</body>
+</html>
